@@ -1,0 +1,1470 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+/* ===== DASAR APLIKASI ===== */
+
+:root {
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
+  color: #493719;
+  background: #fffaf0;
+
+  --kuning: #ffc928;
+  --kuning-muda: #fff0ad;
+  --oranye: #ff9e42;
+  --cokelat: #80500b;
+  --teks: #493719;
+  --redup: #907c5b;
+  --putih: #ffffff;
+  --hijau: #3d9b67;
+  --merah: #dc6255;
+  --radius: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 5%, #ffedaa 0, transparent 28%),
+    radial-gradient(circle at 95% 85%, #ffe0bb 0, transparent 25%),
+    #fffaf0;
+  color: var(--teks);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+/* ===== AREA UTAMA ===== */
+
+.app {
+  width: 100%;
+  max-width: 1000px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 30px 22px;
+}
+
+/* ===== KARTU ===== */
+
+.kartu {
+  position: relative;
+  overflow: hidden;
+  padding: 28px;
+  margin-bottom: 22px;
+  background: var(--putih);
+  border: 1px solid #f5e5bd;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 25px rgba(130, 91, 18, .09);
+}
+
+.kartu h1,
+.kartu h2,
+.kartu h3 {
+  color: var(--cokelat);
+  font-weight: 900;
+}
+
+.kartu h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  margin: 0 0 14px;
+}
+
+.kartu h2 {
+  font-size: 27px;
+  margin-top: 0;
+}
+
+.kartu h3 {
+  font-size: 20px;
+}
+
+.kartu p,
+.kartu li {
+  line-height: 1.8;
+}
+
+/* ===== HALAMAN MASUK DAN BERANDA ===== */
+
+.halaman-masuk {
+  max-width: 570px;
+  margin: 65px auto;
+  padding: 40px;
+  border-top: 8px solid var(--kuning);
+  text-align: center;
+}
+
+.halaman-masuk h1 {
+  color: #a5680c;
+}
+
+.halaman-masuk label {
+  text-align: left;
+}
+
+.halaman-masuk p {
+  color: var(--redup);
+}
+
+.halaman-masuk::after {
+  content: "🛒";
+  display: block;
+  font-size: 65px;
+  margin-top: 20px;
+}
+
+/* ===== TOMBOL UTAMA ===== */
+
+.tombol {
+  min-height: 48px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ffd94f, #ffb923);
+  color: #624000;
+  font-size: 16px;
+  font-weight: 900;
+  box-shadow: 0 5px 12px rgba(208, 151, 24, .2);
+}
+
+.tombol:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(208, 151, 24, .25);
+}
+
+.tombol:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.tombol-sekunder {
+  background: #fff0c9;
+  color: #8b6215;
+  box-shadow: none;
+}
+
+.tombol-penuh {
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* ===== INPUT ===== */
+
+.input {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  margin: 9px 0 18px;
+  padding: 12px 15px;
+  border: 2px solid #f1dfb5;
+  border-radius: 13px;
+  background: #fffdf8;
+  color: var(--teks);
+  font-size: 16px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #f2bd30;
+  box-shadow: 0 0 0 4px rgba(255, 201, 40, .16);
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  color: #76551b;
+  font-weight: 800;
+}
+
+/* ===== MENU BERANDA ===== */
+
+.kisi-menu {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.kisi-menu button {
+  min-height: 125px;
+  padding: 18px 10px;
+  border: 2px solid transparent;
+  border-radius: 19px;
+  background: #fff0b8;
+  color: #80500b;
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1.8;
+  box-shadow: 0 5px 12px rgba(130, 91, 18, .08);
+}
+
+.kisi-menu button:nth-child(2) {
+  background: #ffe0c0;
+  color: #a75b20;
+}
+
+.kisi-menu button:nth-child(3) {
+  background: #dff2d9;
+  color: #397447;
+}
+
+.kisi-menu button:nth-child(4) {
+  background: #e7e0ff;
+  color: #6652a3;
+}
+
+.kisi-menu button:nth-child(5) {
+  background: #d9efff;
+  color: #35749d;
+}
+
+.kisi-menu button:hover {
+  transform: translateY(-5px);
+  border-color: #f3bd36;
+  box-shadow: 0 9px 18px rgba(130, 91, 18, .13);
+}
+
+/* ===== NAVIGASI ===== */
+
+.menu-navigasi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 12px;
+  margin-bottom: 22px;
+  background: #fff1c5;
+  border: 1px solid #f4dfaa;
+  border-radius: 17px;
+}
+
+.menu-navigasi button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 11px;
+  background: transparent;
+  color: #795414;
+  font-weight: 800;
+}
+
+.menu-navigasi button:hover {
+  background: #ffd95c;
+  color: #694000;
+}
+
+/* ===== BAGIAN MATERI ===== */
+
+.bagian-materi {
+  padding: 22px;
+  margin: 20px 0;
+  border: 1px solid #f2e2bb;
+  border-left: 7px solid #ffc928;
+  border-radius: 17px;
+  background: #fffaf0;
+}
+
+.bagian-materi:nth-of-type(2) {
+  border-left-color: #ffab59;
+  background: #fff7ed;
+}
+
+.bagian-materi:nth-of-type(3) {
+  border-left-color: #80bd75;
+  background: #f4fbf0;
+}
+
+.bagian-materi h3 {
+  margin-top: 0;
+}
+
+.kotak-rumus {
+  padding: 16px;
+  margin: 15px 0;
+  border-radius: 13px;
+  background: #ffedaa;
+  color: #704900;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+/* ===== PILIH TAHAP LATIHAN ===== */
+
+.pilihan-tahap {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid #f2dfb1;
+  border-left: 7px solid #ffc928;
+  background: #fffaf0;
+}
+
+.pilihan-tahap:nth-of-type(2) {
+  border-left-color: #ffab59;
+}
+
+.pilihan-tahap:nth-of-type(3) {
+  border-left-color: #80bd75;
+}
+
+.pilihan-tahap:hover {
+  transform: translateX(5px);
+  background: #fff3ce;
+}
+
+/* ===== INDIKATOR LANGKAH ===== */
+
+.langkah-penunjuk {
+  display: inline-block;
+  padding: 9px 16px;
+  margin-bottom: 12px;
+  border-radius: 30px;
+  background: #fff0b8;
+  color: #90600b;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+/* ===== RUMUS DAN SOAL ===== */
+
+.rumus-pecahan {
+  display: inline-block;
+  padding: 20px 28px;
+  margin: 12px 0 20px;
+  border-radius: 16px;
+  background: #fff9e8;
+  text-align: center;
+  font-size: 23px;
+}
+
+.rumus-pecahan .garis {
+  border-top: 2px solid #9c762c;
+  margin: 6px 0;
+}
+
+.uang {
+  color: #d99113;
+  font-weight: 900;
+}
+
+.jumlah {
+  color: #bd7917;
+  font-weight: 900;
+}
+
+/* ===== UMPAN BALIK ===== */
+
+.umpan-balik {
+  padding: 15px 17px;
+  margin: 15px 0;
+  border-radius: 14px;
+  font-weight: 700;
+}
+
+.umpan-balik.benar {
+  background: #e4f6e9;
+  color: #28784b;
+  border: 1px solid #bce4c8;
+}
+
+.umpan-balik.salah {
+  background: #fff0ed;
+  color: #b83b32;
+  border: 1px solid #f3cbc4;
+}
+
+/* ===== PILIHAN JAWABAN KUIS ===== */
+
+.garis-progres {
+  width: 100%;
+  height: 11px;
+  margin: 15px 0 25px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #f5e9ca;
+}
+
+.garis-progres > div {
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #ffb72e, #ffdc54);
+  transition: width .3s ease;
+}
+
+.pilihan-jawaban {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.opsi {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #f0e1c1;
+  border-radius: 14px;
+  background: #fffdf7;
+  color: #654b20;
+  text-align: left;
+  font-weight: 800;
+}
+
+.opsi:hover:not(:disabled) {
+  border-color: #f3bd36;
+  background: #fff5d7;
+}
+
+.opsi-aktif {
+  border-color: #e9a91b;
+  background: #ffedb2;
+  color: #754b00;
+}
+
+.opsi:disabled {
+  cursor: default;
+}
+
+/* ===== HASIL NILAI ===== */
+
+.nilai-besar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 145px;
+  height: 145px;
+  margin: 25px auto;
+  border: 8px solid #ffe28a;
+  border-radius: 50%;
+  background: #fff2bf;
+  color: #9b6508;
+  font-size: 46px;
+  font-weight: 900;
+  box-shadow: 0 7px 18px rgba(208, 151, 24, .13);
+}
+
+.hasil-evaluasi {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.hasil-evaluasi > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 12px;
+  border-radius: 17px;
+  background: #fff1c4;
+  color: #81540b;
+  text-align: center;
+  font-weight: 800;
+}
+
+.hasil-evaluasi > div:nth-child(2) {
+  background: #e3f3dd;
+  color: #397447;
+}
+
+.hasil-evaluasi strong {
+  font-size: 32px;
+}
+
+/* ===== AKSI ===== */
+
+.baris-aksi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 650px) {
+  .app {
+    padding: 15px 12px;
+  }
+
+  .kartu {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .halaman-masuk {
+    margin: 25px auto;
+    padding: 25px 20px;
+  }
+
+  .kisi-menu {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .kisi-menu button {
+    min-height: 105px;
+    font-size: 15px;
+  }
+
+  .menu-navigasi {
+    gap: 5px;
+  }
+
+  .menu-navigasi button {
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+
+  .hasil-evaluasi {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .baris-aksi {
+    flex-direction: column;
+  }
+
+  .baris-aksi button {
+    width: 100%;
+  }
+}
+
+/* ===== TAMPILAN LATIHAN ===== */
+
+.latihan-card {
+  border-top: 7px solid #ffc928;
+}
+
+.latihan-card h2 {
+  margin-top: 15px;
+}
+
+.latihan-card .kotak-rumus {
+  line-height: 1.7;
+  border: 1px dashed #e7b32e;
+}
+
+.latihan-card .input {
+  background: #fffdf6;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.judul-aplikasi {
+  font-size: clamp(30px, 5vw, 42px);
+  font-weight: 900;
+  text-align: center;
+  color: #a7650b;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, #e99b17, #ffbd28, #ed8b26);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+  text-align: center;
+  color: #94713c;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* HALAMAN DEPAN */
+
+.halaman-masuk {
+  max-width: 590px;
+  margin: 35px auto;
+  padding: 35px;
+  text-align: center;
+  border: none;
+  border-radius: 28px;
+  background: linear-gradient(160deg, #fff9e8, #ffffff 65%);
+  box-shadow: 0 12px 35px rgba(160, 111, 20, .14);
+}
+
+.ilustrasi-masuk {
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ffdc68, #ffab47);
+  font-size: 48px;
+  box-shadow: 0 8px 18px rgba(220, 155, 34, .2);
+  transform: rotate(-4deg);
+}
+
+.judul-aplikasi {
+  margin: 0;
+  font-size: clamp(30px, 5vw, 40px);
+  font-weight: 900;
+  color: #bd790c;
+}
+
+.tagline {
+  margin: 8px 0 25px;
+  color: #9b7841;
+  font-weight: 700;
+}
+
+.sambutan-masuk {
+  padding: 18px;
+  margin: 20px 0;
+  border-radius: 18px;
+  background: #fff0bd;
+}
+
+.sambutan-masuk h2 {
+  margin: 0 0 8px;
+  color: #87550a;
+  font-size: 21px;
+}
+
+.sambutan-masuk p {
+  margin: 0;
+  color: #80653a;
+  line-height: 1.7;
+}
+
+.form-masuk {
+  text-align: left;
+}
+
+.tombol-mulai {
+  min-height: 55px;
+  font-size: 17px;
+  background: linear-gradient(120deg, #ffcf38, #ff9f38);
+}
+
+.teks-bawah {
+  margin-top: 24px;
+  color: #a58a5d;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+@media (max-width: 600px) {
+  .halaman-masuk {
+    margin: 15px auto;
+    padding: 24px 18px;
+  }
+}
+
+/* ================================
+   TEMA BARU - JELAJAH MATEMATIKA
+================================ */
+
+:root {
+  --kuning: #ffc83d;
+  --kuning-muda: #fff3c4;
+  --oranye: #ff914d;
+  --hijau: #55b98a;
+  --ungu: #9b83dc;
+  --teks: #493b2b;
+  --putih: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--teks);
+  background:
+    radial-gradient(circle at 10% 10%, #fff0b5 0, transparent 28%),
+    radial-gradient(circle at 90% 15%, #f1e7ff 0, transparent 25%),
+    linear-gradient(135deg, #fffaf0, #fff4dc);
+  font-family: "Nunito", "Segoe UI", sans-serif;
+}
+
+/* Area utama */
+.app {
+  width: 100%;
+  max-width: 1100px;
+  min-height: 100vh;
+  margin: auto;
+  padding: 28px 20px;
+}
+
+/* Kartu */
+.kartu {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #f5e7c9;
+  border-radius: 25px;
+  padding: 28px;
+  box-shadow: 0 10px 28px rgba(125, 91, 35, 0.09);
+}
+
+/* Judul aplikasi */
+.judul-aplikasi {
+  color: #d88b12;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.tagline {
+  color: #98784c;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Judul bagian */
+h2 {
+  color: #875b20;
+  font-weight: 900;
+}
+
+h3 {
+  color: #a56b24;
+}
+
+/* Tombol */
+.tombol {
+  border: none;
+  border-radius: 15px;
+  padding: 13px 21px;
+  background: linear-gradient(135deg, #ffca3a, #ff9d42);
+  color: #57380d;
+  font-weight: 900;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #e6a52b;
+  transition: 0.2s ease;
+}
+
+.tombol:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 0 #e6a52b;
+  filter: brightness(1.04);
+}
+
+.tombol:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #e6a52b;
+}
+
+.tombol:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.tombol-penuh {
+  width: 100%;
+}
+
+/* Input dan pilihan kelas */
+.input {
+  width: 100%;
+  padding: 13px 15px;
+  margin: 8px 0 17px;
+  border: 2px solid #f0dfbd;
+  border-radius: 13px;
+  background: #fffdf8;
+  color: #493b2b;
+  font: inherit;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #ffbd37;
+  box-shadow: 0 0 0 4px rgba(255, 200, 61, 0.18);
+}
+
+/* Menu utama */
+.kisi-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 18px;
+  margin: 25px 0;
+}
+
+.menu-navigasi {
+  min-height: 145px;
+  padding: 22px;
+  border: 2px solid transparent;
+  border-radius: 22px;
+  background: white;
+  color: #5b4933;
+  font-size: 17px;
+  font-weight: 900;
+  text-align: left;
+  box-shadow: 0 7px 20px rgba(125, 91, 35, 0.09);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.menu-navigasi:hover {
+  transform: translateY(-5px);
+  border-color: #ffd36a;
+  box-shadow: 0 12px 24px rgba(125, 91, 35, 0.14);
+}
+
+/* Warna aksen menu */
+.menu-navigasi:nth-child(1) {
+  background: linear-gradient(145deg, #fff2bd, #fff);
+}
+
+.menu-navigasi:nth-child(2) {
+  background: linear-gradient(145deg, #dff5e9, #fff);
+}
+
+.menu-navigasi:nth-child(3) {
+  background: linear-gradient(145deg, #ffe4d5, #fff);
+}
+
+.menu-navigasi:nth-child(4) {
+  background: linear-gradient(145deg, #eae3ff, #fff);
+}
+
+.menu-navigasi:nth-child(5) {
+  background: linear-gradient(145deg, #dff1ff, #fff);
+}
+
+/* Materi dan rumus */
+.bagian-materi {
+  padding: 22px;
+  margin: 18px 0;
+  border-radius: 20px;
+  background: #fffaf0;
+  border-left: 6px solid var(--kuning);
+  box-shadow: 0 5px 15px rgba(125, 91, 35, 0.06);
+}
+
+.kotak-rumus {
+  padding: 17px;
+  margin: 15px 0;
+  border-radius: 16px;
+  background: #fff0bf;
+  color: #80520e;
+  font-size: 17px;
+  font-weight: 900;
+  text-align: center;
+}
+
+/* Pilihan tahap latihan */
+.pilihan-tahap {
+  padding: 20px;
+  margin: 15px 0;
+  border: 2px solid #f3e5c9;
+  border-radius: 19px;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.pilihan-tahap:hover {
+  border-color: #ffbf3f;
+  background: #fff9e8;
+  transform: translateY(-3px);
+}
+
+/* Langkah pengerjaan */
+.langkah-penunjuk {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.langkah-penunjuk > * {
+  border-radius: 30px;
+  padding: 9px 15px;
+  background: #fff0bf;
+  color: #80520e;
+  font-weight: 800;
+}
+
+/* Pecahan dan rumus */
+.rumus-pecahan {
+  padding: 18px;
+  border-radius: 16px;
+  background: #f0eaff;
+  color: #624ba0;
+  text-align: center;
+  font-weight: 900;
+}
+
+/* Pilihan jawaban */
+.pilihan-jawaban {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.opsi {
+  padding: 15px 18px;
+  border: 2px solid #eee1c8;
+  border-radius: 15px;
+  background: white;
+  color: #594831;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.opsi:hover {
+  border-color: #ffbd37;
+  background: #fff8e5;
+}
+
+.opsi:focus,
+.opsi:active {
+  border-color: #e8a51e;
+  background: #fff0bf;
+}
+
+/* Umpan balik jawaban */
+.umpan-balik {
+  padding: 17px;
+  margin: 15px 0;
+  border-radius: 16px;
+  background: #e5f7eb;
+  color: #28734c;
+  font-weight: 800;
+}
+
+/* Garis progres */
+.garis-progres {
+  width: 100%;
+  height: 12px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #f3e8d3;
+}
+
+.garis-progres > * {
+  border-radius: 20px;
+  background: linear-gradient(90deg, #ffc83d, #ff914d);
+}
+
+/* Nilai dan evaluasi */
+.nilai-besar {
+  color: #df9415;
+  font-size: clamp(42px, 8vw, 65px);
+  font-weight: 900;
+  text-align: center;
+}
+
+.hasil-evaluasi {
+  padding: 23px;
+  margin: 18px 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fff1bd, #fffaf0);
+  text-align: center;
+}
+
+/* Baris tombol */
+.baris-aksi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+/* Halaman masuk */
+.halaman-masuk {
+  max-width: 590px;
+  margin: 35px auto;
+  padding: 35px;
+  text-align: center;
+  border: 1px solid #f5e7c9;
+  border-radius: 28px;
+  background: linear-gradient(160deg, #fff9e8, #fff 65%);
+  box-shadow: 0 12px 35px rgba(160, 111, 20, 0.14);
+}
+
+.ilustrasi-masuk {
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ffdc68, #ffab47);
+  font-size: 48px;
+  box-shadow: 0 8px 18px rgba(220, 155, 34, 0.2);
+  transform: rotate(-4deg);
+}
+
+.sambutan-masuk {
+  padding: 18px;
+  margin: 20px 0;
+  border-radius: 18px;
+  background: #fff0bd;
+}
+
+.sambutan-masuk h2 {
+  margin-top: 0;
+  color: #87550a;
+}
+
+.sambutan-masuk p {
+  color: #80653a;
+  line-height: 1.7;
+}
+
+.form-masuk {
+  text-align: left;
+}
+
+.teks-bawah {
+  margin-top: 24px;
+  color: #a58a5d;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* Tampilan HP */
+@media (max-width: 600px) {
+  .app {
+    padding: 15px 12px;
+  }
+
+  .kartu {
+    padding: 20px 16px;
+  }
+
+  .halaman-masuk {
+    margin: 15px auto;
+    padding: 24px 18px;
+  }
+
+  .kisi-menu {
+    grid-template-columns: 1fr;
+  }
+
+  .baris-aksi {
+    flex-direction: column;
+  }
+
+  .baris-aksi .tombol {
+    width: 100%;
+  }
+}
+.gambar-anak {
+  display: block;
+  width: 100%;
+  max-width: 390px;
+  height: auto;
+  margin: 0 auto 15px;
+  border-radius: 20px;
+  animation: melayang 3s ease-in-out infinite;
+}
+
+@keyframes melayang {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ===== TEMA BARU JELAJAH MATEMATIKA ===== */
+
+body {
+  background: linear-gradient(135deg, #fff0a6, #ffe0a3, #fff7dc);
+  color: #49330c;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* Judul aplikasi */
+.judul-aplikasi {
+  color: #e88b00;
+  font-size: clamp(30px, 5vw, 42px);
+  font-weight: 1000;
+  text-shadow: 2px 3px 0 #ffe08a;
+}
+
+/* Kartu utama */
+.kartu {
+  background: #fffdf5;
+  border: 2px solid #ffcf42;
+  border-radius: 26px;
+  box-shadow: 0 9px 0 rgba(218, 151, 23, 0.18);
+}
+
+/* Tombol */
+.tombol {
+  background: linear-gradient(135deg, #ffca28, #ff8c32);
+  color: #593400;
+  border: none;
+  border-radius: 16px;
+  font-weight: 900;
+  box-shadow: 0 5px 0 #d9791d;
+  transition: 0.2s ease;
+}
+
+.tombol:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+}
+
+/* Menu beranda */
+.kisi-menu {
+  gap: 18px;
+}
+
+.kisi-menu > * {
+  border-radius: 22px;
+  border: 2px solid #ffd45b;
+  box-shadow: 0 6px 0 rgba(222, 157, 28, 0.18);
+  transition: 0.2s ease;
+}
+
+.kisi-menu > *:hover {
+  transform: translateY(-5px);
+}
+
+/* Materi dan latihan */
+.bagian-materi,
+.pilihan-tahap {
+  background: #fff5d2;
+  border: 2px solid #ffd45b;
+  border-radius: 20px;
+  padding: 18px;
+}
+
+.kotak-rumus {
+  background: #fff0a8;
+  border: 2px dashed #f0a500;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+/* Pilihan jawaban */
+.opsi {
+  background: #fff8e7;
+  border: 2px solid #f5c94a;
+  border-radius: 14px;
+  padding: 14px;
+  transition: 0.2s ease;
+}
+
+.opsi:hover {
+  background: #ffe49a;
+  transform: translateX(4px);
+}
+
+/* Progres belajar */
+.garis-progres {
+  background: #ffe3a1;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Input */
+.input {
+  border: 2px solid #f4c64b;
+  border-radius: 13px;
+  background: white;
+}
+
+.input:focus {
+  outline: 3px solid #ffdc75;
+}
+
+/* Tampilan HP */
+@media (max-width: 600px) {
+  .app {
+    padding: 14px;
+  }
+
+  .kartu {
+    border-radius: 20px;
+  }
+
+  .kisi-menu {
+    gap: 12px;
+  }
+}
+
+/* HEADER JELAJAH MATEMATIKA */
+.judul-aplikasi {
+  font-size: clamp(30px, 5vw, 44px);
+  font-weight: 1000;
+  letter-spacing: -1px;
+  color: #e87916;
+  text-shadow: 2px 3px 0 #ffd45a;
+  margin-bottom: 8px;
+}
+
+.tagline {
+  color: #8c4c16;
+  font-size: 17px;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+/* Tambahan dekorasi judul */
+.judul-aplikasi::before {
+  content: "⭐ ";
+}
+
+.judul-aplikasi::after {
+  content: " ✨";
+}
+
+.menu-navigasi {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 22px 0;
+  padding: 12px;
+  background: #ffe49a;
+  border: 2px solid #ffc32d;
+  border-radius: 20px;
+}
+
+.menu-navigasi button {
+  background: #ff982e;
+  color: white;
+  border: none;
+  border-radius: 13px;
+  padding: 12px 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.menu-navigasi button:hover {
+  background: #e87516;
+  transform: translateY(-2px);
+}
+
+/* BERANDA BARU */
+.halaman-beranda {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.kartu-utama {
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(145deg, #fff9df, #ffffff);
+  border: 3px solid #ffc928;
+}
+
+.hiasan-beranda {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.judul-aplikasi {
+  color: #e87813;
+  font-size: clamp(30px, 5vw, 44px);
+  font-weight: 1000;
+  text-shadow: 2px 3px 0 #ffd45a;
+}
+
+.tagline {
+  color: #995016;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.sambutan-beranda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: #fff0bd;
+  padding: 15px;
+  border-radius: 20px;
+  margin: 25px 0;
+  text-align: left;
+}
+
+.avatar-beranda {
+  font-size: 42px;
+  background: #ffcf47;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.judul-menu {
+  color: #a85b0a;
+  margin: 25px 0 18px;
+}
+
+.kisi-menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.kisi-menu button {
+  min-height: 145px;
+  border: none;
+  border-radius: 20px;
+  padding: 18px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: white;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 6px 0 rgba(80, 50, 10, .15);
+  transition: .2s ease;
+}
+
+.kisi-menu button:hover {
+  transform: translateY(-5px);
+  filter: brightness(1.08);
+}
+
+.kisi-menu button span {
+  font-size: 38px;
+}
+
+.kisi-menu button small {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.menu-materi { background: #f5b900; }
+.menu-pretest { background: #ed8531; }
+.menu-latihan { background: #29ad75; }
+.menu-posttest { background: #7862d8; }
+.menu-evaluasi { background: #299bd7; }
+
+.motivasi-beranda {
+  margin-top: 25px;
+  padding: 17px;
+  border-radius: 18px;
+  background: #fff0bd;
+  color: #97500e;
+  font-weight: 800;
+}
+
+.alur-beranda {
+  margin-top: 22px;
+  background: #fff;
+  border-left: 7px solid #ffbd24;
+  padding: 24px;
+}
+
+.alur-beranda h3 {
+  color: #d97712;
+}
+
+.alur-beranda li {
+  margin: 12px 0;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .kartu-utama {
+    padding: 20px 14px;
+  }
+
+  .kisi-menu {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .kisi-menu button {
+    min-height: 125px;
+  }
+}
+.tombol-musik {
+  background: linear-gradient(135deg, #8059df, #b18afc);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  margin: 15px 0;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #6241b5;
+  transition: .2s;
+}
+
+.tombol-musik:hover {
+  transform: translateY(-3px);
+}
+
+.tombol-musik-global {
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  z-index: 9999;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8059df, #a88aff);
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(80, 50, 160, .3);
+  transition: .2s ease;
+}
+
+.tombol-musik-global:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+  .tombol-musik-global {
+    top: 12px;
+    right: 12px;
+    width: 43px;
+    height: 43px;
+  }
+}
+
+.tombol-musik-global {
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  z-index: 9999;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8059df, #a88aff);
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(80, 50, 160, .3);
+  transition: .2s ease;
+}
+
+.tombol-musik-global:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+  .tombol-musik-global {
+    top: 12px;
+    right: 12px;
+    width: 43px;
+    height: 43px;
+  }
+}
