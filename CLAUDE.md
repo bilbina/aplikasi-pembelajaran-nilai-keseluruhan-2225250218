@@ -1,49 +1,83 @@
-# CLAUDE.md — Aplikasi Pembelajaran Nilai Keseluruhan, Nilai Per Unit, dan Nilai Sebagian
+# CLAUDE.md — Jelajah Matematika
 
-File ini dibaca pertama kali oleh Claude Code setiap sesi. Baca juga `PRD.md` (apa yang dibangun) dan `DESAIN.md` (bagaimana tampilannya) sebelum menulis kode.
+File ini menjadi panduan utama Claude Code ketika mengembangkan aplikasi. Sebelum menulis atau mengubah kode, baca juga `PRD.md` sebagai panduan kebutuhan aplikasi dan `DESAIN.md` sebagai panduan tampilan aplikasi.
 
-## 1. Ringkasan proyek
+## 1. Ringkasan Proyek
 
-- **Nama aplikasi (sementara):** Toko Unit — belajar harga per unit
-- **Tujuan:** membantu siswa SMP (kelas VII–VIII) menguasai materi aritmetika sosial *Nilai Keseluruhan, Nilai Per Unit, dan Nilai Sebagian* sambil **menekan beban kognitif** (intrinsic, extraneous, germane) agar kemampuan **literasi matematis** meningkat.
-- **Dasar kebutuhan:** wawancara analisis kebutuhan dengan siswa S01 (kelas VIII), kode temuan IL/EL/GL/K/DS. Setiap fitur harus bisa ditelusuri ke satu kode temuan (lihat tabel keterlacakan di `PRD.md`).
-- **Platform:** aplikasi web responsif (mobile-first), berjalan di browser dan smartphone (PWA, bisa di-install ke layar utama). Tidak ada aplikasi native.
-- **Konteks tugas:** tugas Algoritma dan Pemrograman, pendekatan *vibe coding*, model pengembangan ADDIE, instrumen beban kognitif Leppink.
-- **Bahasa antarmuka:** Bahasa Indonesia, kalimat pendek, istilah sesuai buku SMP.
+- **Nama aplikasi:** Jelajah Matematika
+- **Tagline:** Petualangan Seru Belajar Aritmetika Sosial
+- **Pengembang:** Adelilya Salsha
+- **NIM:** 2225250218
+- **Program Studi:** Pendidikan Matematika
+- **Universitas:** Universitas Sultan Ageng Tirtayasa
+- **Tujuan:** Membantu siswa SMP memahami materi Aritmetika Sosial melalui pembelajaran bertahap, latihan interaktif, dan evaluasi.
+- **Materi utama:** Nilai Keseluruhan, Nilai Per Unit, dan Nilai Sebagian.
+- **Platform:** Aplikasi web responsif yang dapat digunakan melalui laptop dan smartphone.
+- **Model pengembangan:** ADDIE.
+- **Pendekatan pengembangan:** Vibe Coding.
 
-## 2. Tech stack
+Aplikasi dirancang agar siswa dapat memahami konsep matematika melalui penjelasan, contoh soal, latihan, petunjuk, dan umpan balik.
 
-| Lapisan | Pilihan |
+## 2. Teknologi yang Digunakan
+
+| Lapisan | Teknologi |
 |---|---|
-| Build tool | Vite |
-| UI | React (fungsional + hooks), JavaScript (bukan TypeScript) |
-| Styling | CSS biasa (`App.css`, `index.css`), tanpa framework CSS |
-| Backend/DB | Supabase (PostgreSQL + Auth anonim) lewat `src/supabase.js` |
-| PWA | `public/pwa-192x192.png`, `public/pwa-512x512.png`, manifest, service worker (plugin Vite PWA bila perlu) |
-| Hosting | GitHub → Vercel atau Netlify (build `npm run build`, output `dist`) |
+| Build Tool | Vite |
+| Antarmuka | React |
+| Bahasa Pemrograman | JavaScript |
+| Styling | CSS biasa |
+| Backend/Database | Supabase |
+| Hosting | GitHub dan Vercel |
+| PWA | Manifest dan aset aplikasi |
 
-## 3. Struktur folder
+Gunakan teknologi yang sudah tersedia dalam proyek. Jangan mengganti teknologi utama tanpa alasan yang jelas.
 
-Kerangka mengikuti proyek sebelumnya (folder `public`, `src`, `App.jsx`, `App.css`, `supabase.js`, dst.). Tanda ➕ = tambahan baru agar `App.jsx` tidak membengkak.
+## 3. Identitas dan Konsep Desain
 
-```
-aplikasi-pembelajaran-nilai-per-unit-2225250063/
+Gunakan identitas visual Jelajah Matematika secara konsisten.
+
+- **Tema:** Ceria, modern, edukatif, dan interaktif.
+- **Warna utama:** Kuning cerah, oranye, hijau, ungu, dan biru.
+- **Bentuk elemen:** Kartu dan tombol dengan sudut membulat.
+- **Ilustrasi:** Menggunakan ilustrasi anak sekolah dan gambar pendukung pembelajaran.
+- **Tipografi:** Mudah dibaca dan sesuai untuk siswa SMP.
+- **Tata letak:** Rapi, responsif, dan mudah digunakan.
+
+Jangan mengubah desain aplikasi menjadi tema Toko Unit atau menggunakan desain yang tidak sesuai dengan identitas Jelajah Matematika.
+
+## 4. Struktur Folder Proyek
+
+Ikuti struktur folder yang sudah tersedia. Jangan membuat folder atau file baru jika tidak diperlukan.
+
+```text
+aplikasi-pembelajaran-nilai-keseluruhan-2225250218/
 ├── public/
 │   ├── favicon.svg
 │   ├── icons.svg
+│   ├── anak-sekolah.png
+│   ├── musik-belajar.mp3
+│   ├── toko-buku.png
+│   ├── toko-dus.png
+│   ├── toko-pensil.png
+│   ├── toko-pulpen.png
 │   ├── pwa-192x192.png
 │   ├── pwa-512x512.png
-│   └── toko-*.png            # ilustrasi sederhana simulasi (pensil, buku, pulpen, dus)
+│   └── manifest.webmanifest
 ├── src/
 │   ├── assets/
-│   ├── components/ ➕          # komponen per fitur (lihat DESAIN.md bagian 5)
-│   ├── data/ ➕                # soal.js, satuan.js, petunjuk.js (konten terpisah dari logika)
-│   ├── App.jsx               # routing antar layar + state global saja
-│   ├── App.css               # gaya global + per bagian
-│   ├── index.css             # reset + variabel warna/tipografi
+│   ├── components/
+│   │   ├── KamusSatuan.jsx
+│   │   └── LangkahSoal.jsx
+│   ├── data/
+│   │   ├── petunjuk.js
+│   │   ├── satuan.js
+│   │   └── soal.js
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
 │   ├── main.jsx
 │   └── supabase.js
-├── .env                      # TIDAK di-commit
+├── .env
 ├── .gitignore
 ├── eslint.config.js
 ├── index.html
@@ -56,84 +90,431 @@ aplikasi-pembelajaran-nilai-per-unit-2225250063/
 └── DESAIN.md
 ```
 
-Nama folder tugas yang dikumpulkan: `2225250063_Adelilya_Salsha` (format NIM_NAMA_LENGKAP).
+## 5. Menu dan Fitur Aplikasi
 
-## 4. Perintah
+Aplikasi memiliki lima menu utama:
+
+| Menu | Fungsi |
+|---|---|
+| Materi | Menyediakan penjelasan materi Aritmetika Sosial |
+| Pretest | Mengukur kemampuan awal siswa |
+| Latihan | Melatih pemahaman siswa melalui soal bertahap |
+| Post-test | Mengukur pemahaman setelah pembelajaran |
+| Evaluasi | Menampilkan hasil pembelajaran siswa |
+
+### Materi Pembelajaran
+
+Materi terdiri atas tiga bagian:
+
+1. Nilai Keseluruhan.
+2. Nilai Per Unit.
+3. Nilai Sebagian.
+
+### Fitur Pendukung
+
+- Kamus Satuan.
+- Petunjuk pengerjaan.
+- Contoh soal dan pembahasan.
+- Umpan balik jawaban.
+- Navigasi langkah pengerjaan.
+- Musik latar.
+- Tampilan responsif.
+
+## 6. Aturan Pengembangan Antarmuka
+
+Setiap perubahan kode harus memperhatikan aturan berikut.
+
+1. **Konsistensi desain:** Gunakan warna, bentuk kartu, tombol, dan tipografi yang konsisten dengan aplikasi.
+2. **Navigasi sederhana:** Pastikan siswa dapat berpindah halaman dengan mudah.
+3. **Informasi jelas:** Gunakan bahasa Indonesia yang sederhana dan mudah dipahami siswa SMP.
+4. **Pembelajaran bertahap:** Sajikan soal berdasarkan urutan materi dan tingkat kesulitan.
+5. **Umpan balik:** Berikan informasi yang jelas ketika siswa menjawab benar atau salah.
+6. **Tombol interaktif:** Pastikan setiap tombol memiliki fungsi yang benar.
+7. **Responsif:** Pastikan aplikasi dapat digunakan pada laptop dan smartphone.
+8. **Keterbacaan:** Hindari teks terlalu kecil dan elemen yang saling bertumpuk.
+9. **Musik:** Tombol musik harus tersedia di seluruh halaman dan dapat dinyalakan atau dimatikan.
+10. **Kenyamanan belajar:** Hindari elemen visual berlebihan yang mengganggu fokus siswa.
+
+## 7. Aturan Materi dan Perhitungan
+
+Gunakan konsep matematika yang benar untuk setiap soal.
+
+Rumus utama:
+
+**Nilai Keseluruhan**
+
+Nilai keseluruhan = Nilai per unit × Jumlah unit
+
+**Nilai Per Unit**
+
+Nilai per unit = Nilai keseluruhan ÷ Jumlah unit
+
+**Nilai Sebagian**
+
+Nilai sebagian = Nilai per unit × Jumlah unit sebagian
+
+Konversi satuan:
+
+| Satuan | Jumlah |
+|---|---:|
+| 1 lusin | 12 buah |
+| 1 kodi | 20 buah |
+| 1 gros | 144 buah |
+
+Ketentuan:
+- Perhitungan harga menggunakan nilai numerik yang tepat.
+- Format rupiah menggunakan format seperti `Rp48.000`.
+- Hindari kesalahan pembagian dan perkalian.
+- Pastikan jawaban sesuai dengan konteks soal.
+- Gunakan fungsi pemformatan rupiah yang konsisten.
+
+## 8. Konvensi Kode
+
+- Komponen React menggunakan `PascalCase`.
+- Fungsi dan variabel menggunakan `camelCase`.
+- Kelas CSS menggunakan `kebab-case`.
+- Gunakan React Hooks di dalam komponen atau custom hooks.
+- Hindari duplikasi kode.
+- Pisahkan data soal dan petunjuk dari logika tampilan jika struktur proyek mendukungnya.
+- Gunakan nama variabel dan fungsi yang mudah dipahami.
+- Jangan menghapus fitur yang sudah berjalan tanpa alasan.
+- Jangan mengubah seluruh struktur aplikasi hanya untuk memperbaiki satu komponen.
+- Pastikan tidak ada error pada console browser.
+
+## 9. Supabase dan Variabel Lingkungan
+
+Jika fitur Supabase digunakan, koneksi dilakukan melalui `src/supabase.js`.
+
+Variabel lingkungan disimpan dalam file `.env`:
+
+```env
+VITE_SUPABASE_URL=URL_SUPABASE_KAMU
+VITE_SUPABASE_ANON_KEY=ANON_KEY_SUPABASE_KAMU
+```
+
+Ketentuan:
+- Jangan mengunggah file `.env` ke GitHub.
+- Jangan menampilkan kredensial pribadi dalam kode atau log.
+- Jangan menggunakan kunci `service_role` pada sisi klien.
+- Tangani kondisi loading dan error ketika melakukan permintaan data.
+- Jangan menganggap fitur penyimpanan sudah aktif jika belum dikonfigurasi.
+
+## 10. Hal yang Tidak Boleh Dilakukan
+
+- Jangan mengganti nama aplikasi menjadi Toko Unit.
+- Jangan mengubah materi utama tanpa persetujuan.
+- Jangan menghapus menu atau fitur yang sudah berfungsi.
+- Jangan mengubah desain secara keseluruhan tanpa diminta.
+- Jangan menambahkan fitur yang tidak berkaitan dengan kebutuhan aplikasi.
+- Jangan menghapus aset gambar atau musik yang masih digunakan.
+- Jangan mengunggah file `.env` dan kredensial Supabase.
+- Jangan membuat tombol yang tidak memiliki fungsi.
+- Jangan menampilkan jawaban yang salah atau rumus yang tidak sesuai.
+- Jangan mengubah identitas pengembang tanpa persetujuan.
+
+## 11. Perintah Pengembangan
+
+Jalankan perintah berikut dari folder utama proyek.
+
+Menginstal dependencies:
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173
+```
+
+Menjalankan aplikasi:
+
+```bash
+npm run dev
+```
+
+Membuat build produksi:
+
+```bash
 npm run build
+```
+
+Menjalankan pemeriksaan lint:
+
+```bash
 npm run lint
-git add . && git commit -m "pesan jelas" && git push origin main
 ```
 
-Variabel lingkungan di `.env` (jangan pernah dicetak ke log atau di-commit):
+Mengunggah perubahan ke GitHub:
 
+```bash
+git add .
+git commit -m "pesan perubahan"
+git push origin main
 ```
-VITE_SUPABASE_URL=...
-VITE_SUPABASE_ANON_KEY=...
-```
 
-## 5. Aturan beban kognitif (WAJIB, berlaku untuk semua kode UI)
+## 12. Alur Pengembangan ADDIE
 
-Aturan ini adalah inti penelitian. Jika ragu, pilih yang lebih sederhana.
-
-1. **One Step per Screen.** Satu layar = satu keputusan/langkah (Langkah 1: cari per unit, Langkah 2: cari total baru).
-2. **Tanpa hiasan.** Tidak ada animasi ramai, latar bergerak, atau ilustrasi dekoratif. Animasi hanya untuk menjelaskan konsep (membagi total ke wadah unit) dan durasinya ≤ 600 ms. Musik latar tidak ada.
-3. **Informasi yang dibutuhkan satu tempat.** Data soal, tabel harga, dan pertanyaan tampil di layar yang sama. Tidak ada tabel di halaman lain (hindari *split-attention*).
-4. **Siswa mengatur tempo.** Setiap penjelasan punya tombol *Lanjut*, *Ulang*, dan *Langkah sebelumnya*. Tidak ada auto-advance.
-5. **Bantuan bertahap, bukan jawaban langsung.** Petunjuk dibuka satu tingkat demi satu tingkat (lihat `DESAIN.md` bagian 6).
-6. **Umpan balik menunjuk letak salah.** Contoh: "Jumlah barang seharusnya di bawah (penyebut), bukan harga."
-7. **Kamus satuan selalu terjangkau** (1 lusin = 12, 1 kodi = 20, 1 gros = 144) lewat satu ketukan.
-8. **Kata kunci disorot** pada soal cerita (jumlah barang dan harga total) dan siswa bisa menandai sendiri.
-9. **Bahasa soal sederhana.** Satu kalimat = satu informasi. Satuan seperti pak/gros/dus selalu dijelaskan di soal.
-10. **Mobile-first.** Rancang untuk lebar 360 px, target sentuh ≥ 48 px, font isi ≥ 16 px.
-
-## 6. Konvensi kode
-
-- Komponen React: `PascalCase`, satu komponen per file di `src/components/`.
-- Kelas CSS: `kebab-case`, diawali nama bagian, mis. `.diagram-unit`, `.kamus-satuan`, `.petunjuk-kartu` (pola seperti `.calculator-section .material-card` di proyek sebelumnya).
-- Warna, jarak, dan ukuran font **hanya** lewat variabel CSS di `index.css` (`var(--warna-utama)`).
-- Konten soal, satuan, dan petunjuk disimpan di `src/data/*.js`, bukan ditulis langsung di JSX.
-- Semua teks yang tampil ke siswa berbahasa Indonesia. Komentar kode boleh Indonesia.
-- Komponen kecil (< 150 baris). Jika `App.css` melewati ±1000 baris, pecah per komponen.
-- Tangani kondisi *loading*, *error*, dan *offline* pada setiap pemanggilan Supabase.
-- Perhitungan memakai bilangan bulat/rupiah; format tampilan `Rp48.000` lewat satu fungsi `formatRupiah()`.
-
-## 7. Supabase
-
-Tabel inti (detail kolom di `PRD.md` bagian 9): `siswa`, `sesi`, `jawaban`, `event_log`, `beban_kognitif`.
-
-- Gunakan **Auth anonim** agar siswa tidak perlu akun; identitas memakai kode siswa (mis. `S01`), bukan nama asli.
-- Aktifkan **Row Level Security** pada semua tabel. Kunci `anon` hanya boleh `insert` data milik sesinya sendiri.
-- Jangan simpan data pribadi (nama lengkap, alamat, foto) siswa.
-
-## 8. Yang JANGAN dilakukan
-
-- Jangan menambah fitur di luar `PRD.md` tanpa konfirmasi (setiap fitur harus punya kode temuan).
-- Jangan menambah pustaka besar (animasi, UI kit) tanpa alasan kuat.
-- Jangan commit `.env` atau kunci Supabase `service_role`.
-- Jangan menampilkan jawaban akhir sebelum siswa mencoba setidaknya sekali.
-- Jangan menampilkan iklan, pop-up berlebihan, atau skor kompetitif yang menambah beban ekstra.
-
-## 9. Alur kerja (ADDIE)
-
-| Fase | Wujud di proyek |
+| Tahap | Kegiatan |
 |---|---|
-| Analyze | Wawancara kebutuhan → matriks fitur (sudah) |
-| Design | `PRD.md`, `DESAIN.md` (file ini dan pasangannya) |
-| Develop | Coding bertahap sesuai Milestone di `PRD.md` bagian 11 |
-| Implement | 2 siswa SMP, 2–3 sesi belajar, pretest dan posttest |
-| Evaluate | Skor literasi + skala beban kognitif Leppink + catatan pengulangan langkah |
+| Analyze | Menganalisis kebutuhan dan kesulitan siswa |
+| Design | Menyusun PRD, desain aplikasi, dan alur pembelajaran |
+| Develop | Mengembangkan aplikasi menggunakan React dan Vite |
+| Implement | Menggunakan aplikasi dalam proses pembelajaran |
+| Evaluate | Mengevaluasi hasil belajar dan kualitas aplikasi |
 
-Kerjakan **satu milestone per sesi**. Setelah selesai: jalankan `npm run lint` dan `npm run build`, uji di lebar 360 px, lalu commit.
+Kerjakan pengembangan# CLAUDE.md — Jelajah Matematika
 
-## 10. Definition of Done (per fitur)
+File ini menjadi panduan utama Claude Code ketika mengembangkan aplikasi. Sebelum menulis atau mengubah kode, baca juga `PRD.md` sebagai panduan kebutuhan aplikasi dan `DESAIN.md` sebagai panduan tampilan aplikasi.
 
-- [ ] Sesuai aturan beban kognitif bagian 5
-- [ ] Berjalan di layar 360 px dan desktop
-- [ ] Teks bebas typo dan memakai istilah yang benar
-- [ ] Data penting tercatat ke `event_log`
-- [ ] Lint dan build lolos tanpa error
-- [ ] Cara menguji fitur (kolom terakhir matriks) bisa dilakukan langsung
+## 1. Ringkasan Proyek
+
+- **Nama aplikasi:** Jelajah Matematika
+- **Tagline:** Petualangan Seru Belajar Aritmetika Sosial
+- **Pengembang:** Adelilya Salsha
+- **NIM:** 2225250218
+- **Program Studi:** Pendidikan Matematika
+- **Universitas:** Universitas Sultan Ageng Tirtayasa
+- **Tujuan:** Membantu siswa SMP memahami materi Aritmetika Sosial melalui pembelajaran bertahap, latihan interaktif, dan evaluasi.
+- **Materi utama:** Nilai Keseluruhan, Nilai Per Unit, dan Nilai Sebagian.
+- **Platform:** Aplikasi web responsif yang dapat digunakan melalui laptop dan smartphone.
+- **Model pengembangan:** ADDIE.
+- **Pendekatan pengembangan:** Vibe Coding.
+
+Aplikasi dirancang agar siswa dapat memahami konsep matematika melalui penjelasan, contoh soal, latihan, petunjuk, dan umpan balik.
+
+## 2. Teknologi yang Digunakan
+
+| Lapisan | Teknologi |
+|---|---|
+| Build Tool | Vite |
+| Antarmuka | React |
+| Bahasa Pemrograman | JavaScript |
+| Styling | CSS biasa |
+| Backend/Database | Supabase |
+| Hosting | GitHub dan Vercel |
+| PWA | Manifest dan aset aplikasi |
+
+Gunakan teknologi yang sudah tersedia dalam proyek. Jangan mengganti teknologi utama tanpa alasan yang jelas.
+
+## 3. Identitas dan Konsep Desain
+
+Gunakan identitas visual Jelajah Matematika secara konsisten.
+
+- **Tema:** Ceria, modern, edukatif, dan interaktif.
+- **Warna utama:** Kuning cerah, oranye, hijau, ungu, dan biru.
+- **Bentuk elemen:** Kartu dan tombol dengan sudut membulat.
+- **Ilustrasi:** Menggunakan ilustrasi anak sekolah dan gambar pendukung pembelajaran.
+- **Tipografi:** Mudah dibaca dan sesuai untuk siswa SMP.
+- **Tata letak:** Rapi, responsif, dan mudah digunakan.
+
+Jangan mengubah desain aplikasi menjadi tema Toko Unit atau menggunakan desain yang tidak sesuai dengan identitas Jelajah Matematika.
+
+## 4. Struktur Folder Proyek
+
+Ikuti struktur folder yang sudah tersedia. Jangan membuat folder atau file baru jika tidak diperlukan.
+
+```text
+aplikasi-pembelajaran-nilai-keseluruhan-2225250218/
+├── public/
+│   ├── favicon.svg
+│   ├── icons.svg
+│   ├── anak-sekolah.png
+│   ├── musik-belajar.mp3
+│   ├── toko-buku.png
+│   ├── toko-dus.png
+│   ├── toko-pensil.png
+│   ├── toko-pulpen.png
+│   ├── pwa-192x192.png
+│   ├── pwa-512x512.png
+│   └── manifest.webmanifest
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── KamusSatuan.jsx
+│   │   └── LangkahSoal.jsx
+│   ├── data/
+│   │   ├── petunjuk.js
+│   │   ├── satuan.js
+│   │   └── soal.js
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   ├── main.jsx
+│   └── supabase.js
+├── .env
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+├── README.md
+├── CLAUDE.md
+├── PRD.md
+└── DESAIN.md
+```
+
+## 5. Menu dan Fitur Aplikasi
+
+Aplikasi memiliki lima menu utama:
+
+| Menu | Fungsi |
+|---|---|
+| Materi | Menyediakan penjelasan materi Aritmetika Sosial |
+| Pretest | Mengukur kemampuan awal siswa |
+| Latihan | Melatih pemahaman siswa melalui soal bertahap |
+| Post-test | Mengukur pemahaman setelah pembelajaran |
+| Evaluasi | Menampilkan hasil pembelajaran siswa |
+
+### Materi Pembelajaran
+
+Materi terdiri atas tiga bagian:
+
+1. Nilai Keseluruhan.
+2. Nilai Per Unit.
+3. Nilai Sebagian.
+
+### Fitur Pendukung
+
+- Kamus Satuan.
+- Petunjuk pengerjaan.
+- Contoh soal dan pembahasan.
+- Umpan balik jawaban.
+- Navigasi langkah pengerjaan.
+- Musik latar.
+- Tampilan responsif.
+
+## 6. Aturan Pengembangan Antarmuka
+
+Setiap perubahan kode harus memperhatikan aturan berikut.
+
+1. **Konsistensi desain:** Gunakan warna, bentuk kartu, tombol, dan tipografi yang konsisten dengan aplikasi.
+2. **Navigasi sederhana:** Pastikan siswa dapat berpindah halaman dengan mudah.
+3. **Informasi jelas:** Gunakan bahasa Indonesia yang sederhana dan mudah dipahami siswa SMP.
+4. **Pembelajaran bertahap:** Sajikan soal berdasarkan urutan materi dan tingkat kesulitan.
+5. **Umpan balik:** Berikan informasi yang jelas ketika siswa menjawab benar atau salah.
+6. **Tombol interaktif:** Pastikan setiap tombol memiliki fungsi yang benar.
+7. **Responsif:** Pastikan aplikasi dapat digunakan pada laptop dan smartphone.
+8. **Keterbacaan:** Hindari teks terlalu kecil dan elemen yang saling bertumpuk.
+9. **Musik:** Tombol musik harus tersedia di seluruh halaman dan dapat dinyalakan atau dimatikan.
+10. **Kenyamanan belajar:** Hindari elemen visual berlebihan yang mengganggu fokus siswa.
+
+## 7. Aturan Materi dan Perhitungan
+
+Gunakan konsep matematika yang benar untuk setiap soal.
+
+Rumus utama:
+
+**Nilai Keseluruhan**
+
+Nilai keseluruhan = Nilai per unit × Jumlah unit
+
+**Nilai Per Unit**
+
+Nilai per unit = Nilai keseluruhan ÷ Jumlah unit
+
+**Nilai Sebagian**
+
+Nilai sebagian = Nilai per unit × Jumlah unit sebagian
+
+Konversi satuan:
+
+| Satuan | Jumlah |
+|---|---:|
+| 1 lusin | 12 buah |
+| 1 kodi | 20 buah |
+| 1 gros | 144 buah |
+
+Ketentuan:
+- Perhitungan harga menggunakan nilai numerik yang tepat.
+- Format rupiah menggunakan format seperti `Rp48.000`.
+- Hindari kesalahan pembagian dan perkalian.
+- Pastikan jawaban sesuai dengan konteks soal.
+- Gunakan fungsi pemformatan rupiah yang konsisten.
+
+## 8. Konvensi Kode
+
+- Komponen React menggunakan `PascalCase`.
+- Fungsi dan variabel menggunakan `camelCase`.
+- Kelas CSS menggunakan `kebab-case`.
+- Gunakan React Hooks di dalam komponen atau custom hooks.
+- Hindari duplikasi kode.
+- Pisahkan data soal dan petunjuk dari logika tampilan jika struktur proyek mendukungnya.
+- Gunakan nama variabel dan fungsi yang mudah dipahami.
+- Jangan menghapus fitur yang sudah berjalan tanpa alasan.
+- Jangan mengubah seluruh struktur aplikasi hanya untuk memperbaiki satu komponen.
+- Pastikan tidak ada error pada console browser.
+
+## 9. Supabase dan Variabel Lingkungan
+
+Jika fitur Supabase digunakan, koneksi dilakukan melalui `src/supabase.js`.
+
+Variabel lingkungan disimpan dalam file `.env`:
+
+```env
+VITE_SUPABASE_URL=URL_SUPABASE_KAMU
+VITE_SUPABASE_ANON_KEY=ANON_KEY_SUPABASE_KAMU
+```
+
+Ketentuan:
+- Jangan mengunggah file `.env` ke GitHub.
+- Jangan menampilkan kredensial pribadi dalam kode atau log.
+- Jangan menggunakan kunci `service_role` pada sisi klien.
+- Tangani kondisi loading dan error ketika melakukan permintaan data.
+- Jangan menganggap fitur penyimpanan sudah aktif jika belum dikonfigurasi.
+
+## 10. Hal yang Tidak Boleh Dilakukan
+
+- Jangan mengganti nama aplikasi menjadi Toko Unit.
+- Jangan mengubah materi utama tanpa persetujuan.
+- Jangan menghapus menu atau fitur yang sudah berfungsi.
+- Jangan mengubah desain secara keseluruhan tanpa diminta.
+- Jangan menambahkan fitur yang tidak berkaitan dengan kebutuhan aplikasi.
+- Jangan menghapus aset gambar atau musik yang masih digunakan.
+- Jangan mengunggah file `.env` dan kredensial Supabase.
+- Jangan membuat tombol yang tidak memiliki fungsi.
+- Jangan menampilkan jawaban yang salah atau rumus yang tidak sesuai.
+- Jangan mengubah identitas pengembang tanpa persetujuan.
+
+## 11. Perintah Pengembangan
+
+Jalankan perintah berikut dari folder utama proyek.
+
+Menginstal dependencies:
+
+```bash
+npm install
+```
+
+Menjalankan aplikasi:
+
+```bash
+npm run dev
+```
+
+Membuat build produksi:
+
+```bash
+npm run build
+```
+
+Menjalankan pemeriksaan lint:
+
+```bash
+npm run lint
+```
+
+Mengunggah perubahan ke GitHub:
+
+```bash
+git add .
+git commit -m "pesan perubahan"
+git push origin main
+```
+
+## 12. Alur Pengembangan ADDIE
+
+| Tahap | Kegiatan |
+|---|---|
+| Analyze | Menganalisis kebutuhan dan kesulitan siswa |
+| Design | Menyusun PRD, desain aplikasi, dan alur pembelajaran |
+| Develop | Mengembangkan aplikasi menggunakan React dan Vite |
+| Implement | Menggunakan aplikasi dalam proses pembelajaran |
+| Evaluate | Mengevaluasi hasil belajar dan kualitas aplikasi |
+

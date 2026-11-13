@@ -2,7 +2,7 @@
 
 
 **Identitas Pengembang**
-- **Nama:** Adelilya Salsha
+- **Nama:** Bilbina Azizi Amarinova
 - **NIM:** 2225250218
 - **Program Studi:** Pendidikan Matematika
 - **Universitas:** Universitas Sultan Ageng Tirtayasa
