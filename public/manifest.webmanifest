@@ -1,1 +1,26 @@
-{"name":"Toko Unit","short_name":"Toko Unit","start_url":"/","display":"standalone","background_color":"#FAFAF7","theme_color":"#2F6FED","icons":[{"src":"/pwa-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/pwa-512x512.png","sizes":"512x512","type":"image/png"}]}
+
+{
+  "name": "Jelajah Matematika",
+  "short_name": "Jelajah Matematika",
+  "description": "Petualangan Seru Belajar Aritmetika Sosial",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FAFAF7",
+  "theme_color": "#2F6FED",
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
