@@ -138,14 +138,13 @@ if (layar === 'masuk') {
       </button>
 
       <div className="kartu halaman-masuk">
-        <img
-  src="/anak-sekolah.png"
-  alt="Ilustrasi anak sekolah"
-  className="gambar-anak"
-/>
-
-        <div className="ilustrasi-masuk">📚✨</div>
-
+        <div className="login-ilustrasi">
+  <img
+    src="/anak-sekolah.png"
+    alt="Ilustrasi anak sedang belajar"
+    className="gambar-anak"
+  />
+</div>
         <h1 className="judul-aplikasi">
           Jelajah Matematika
         </h1>
